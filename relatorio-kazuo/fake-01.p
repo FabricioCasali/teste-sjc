@@ -1,5 +1,5 @@
 TESTE COMIT CELSO
-
+TESTE ANDREA
 
 MENSAGEM CASALI
 
@@ -1051,7 +1051,7 @@ define variable ENVIAR_DADOS_ARQUIVO            as   character  init 'ARQUIVO'  
 define new global shared variable hd-web-service                  as   handle                     no-undo.
 define new global shared variable hd-progress-service             as   handle                     no-undo.
 
-// Tabela que armazena as requisi‡äes assincronas dos webservices. Tem por finalidade apenas nÆo destruir o handle da requisi‡Æo para que o resultado possa ser processado
+// Tabela que armazena as requisiÂ‡Ã¤es assincronas dos webservices. Tem por finalidade apenas nÃ†o destruir o handle da requisiÂ‡Ã†o para que o resultado possa ser processado
 
 define temp-table temp-request-handlers         no-undo
     field hd-request as handle .
@@ -1233,7 +1233,7 @@ end function.
 procedure HandleProcedureReturn:    
     define input parameter dt-e             as   datetime       no-undo.
         
-    log-manager:write-message(substitute ('hora do termino da requisi‡Æo: &1', dt-e)).
+    log-manager:write-message(substitute ('hora do termino da requisiÂ‡Ã†o: &1', dt-e)).
     process events.   
 end procedure.
 
@@ -1254,7 +1254,7 @@ function EnviarDados returns logical
     define variable dt-output               as   datetime           no-undo.
     
     find first temp-parametro-entrada.       
-    log-manager:write-message (substitute ('modo de comunica‡Æo: &1', temp-parametro-entrada.ch-modo-envio-dados ),'DEBUG') no-error.
+    log-manager:write-message (substitute ('modo de comunicaÂ‡Ã†o: &1', temp-parametro-entrada.ch-modo-envio-dados ),'DEBUG') no-error.
     
     if temp-parametro-entrada.ch-modo-envio-dados   = ENVIAR_DADOS_WEBSERVICE
     then do:
@@ -1284,7 +1284,7 @@ function EnviarDados returns logical
         end.
         // armazena na temp-table o handle da requisicao para que o objeto nao seja destruido e possa processasr o retorno. caso os handles sejam destruidos, 
 
-        // a property hd-web-service:async-request-count nunca ser  atualizada com o resultado dos processamentos.
+        // a property hd-web-service:async-request-count nunca serÂ  atualizada com o resultado dos processamentos.
 
         create temp-request-handlers.
         assign temp-request-handlers.hd-request = hd-request.
@@ -1434,28 +1434,28 @@ define dataset XML_ALERTAS namespace-uri "http://www.thealth.com.br/BillingAlert
 
 define variable CH_MENSAGEM_COPART_NAO_FATURADA
                                                 as   character
-                                                init "Coparticipa‡Æo em movimento liberado pelo RC e nÆo faturada" no-undo.
+                                                init "CoparticipaÂ‡Ã†o em movimento liberado pelo RC e nÃ†o faturada" no-undo.
 define variable CH_MENSAGEM_CONTRATO_SEM_NOTASERV   
                                                 as   character  
-                                                init "Contrato ativo no per¡odo mas sem nota de servi‡o" no-undo.
+                                                init "Contrato ativo no perÂ¡odo mas sem nota de serviÂ‡o" no-undo.
 define variable CH_MENSAGEM_NOTASERV_SEM_FATURA   
                                                 as   character  
-                                                init "Nota de servi‡o nÆo possui fatura gerada" no-undo.
+                                                init "Nota de serviÂ‡o nÃ†o possui fatura gerada" no-undo.
 define variable CH_MENSAGEM_NOTASERV_VINCULADO_FATURA_INEXISTENTE   
                                                 as   character  
-                                                init "Nota de servi‡o vinculado a fatura inexistente" no-undo.                                                
+                                                init "Nota de serviÂ‡o vinculado a fatura inexistente" no-undo.                                                
 define variable CH_MENSAGEM_FATURA_NAO_INTEGRADA_FINANCEIRO 
                                                 as   character  
-                                                init "Fatura nÆo integrada no financeiro" no-undo.                                                       
+                                                init "Fatura nÃ†o integrada no financeiro" no-undo.                                                       
 define variable CH_MENSAGEM_FATURA_VINCULADO_TITULO_INEXISTENTE
                                                 as   character  
-                                                init "Fatura vinculada a t¡tulo inexistente" no-undo.                                                                                            
+                                                init "Fatura vinculada a tÂ¡tulo inexistente" no-undo.                                                                                            
 define variable CH_MENSAGEM_MOVIMENTO_CUSTO_NAO_FATURADO
                                                 as   character  
-                                                init "Movimento de custo operacional liberado no contas e nÆo faturado" no-undo.                                                                                            
+                                                init "Movimento de custo operacional liberado no contas e nÃ†o faturado" no-undo.                                                                                            
 define variable CH_MENSAGEM_MOVIMENTO_INTERCAMBIO_NAO_FATURADO
                                                 as   character  
-                                                init "Movimento de intercƒmbio liberado no contas e nÆo faturado" no-undo.                                                                                            
+                                                init "Movimento de intercÂƒmbio liberado no contas e nÃ†o faturado" no-undo.                                                                                            
 
 /* ********************  Preprocessor Definitions  ******************** */
 
