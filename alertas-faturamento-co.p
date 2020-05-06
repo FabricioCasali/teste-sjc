@@ -1,4 +1,4 @@
-// celso GAY
+// celso GAY E muito
 /*------------------------------------------------------------------------
     File        : Faturamento.p
     Purpose     :
@@ -79,14 +79,14 @@ function BuscaValorFaturamentoPrepagamentoContrato returns decimal
     (in-modalidade      as   integer,
      in-termo           as   integer,
      in-ano             as   integer,
-     in-mes             as   integer  ) forward.
+     in-mes             as   integer) FORWARD.
 
 function EhEventoMensalidade returns logical 
-    (ch-classe-evento               as   character) forward.
+    (ch-classe-evento               as   character ) FORWARD.
 
 function IdadeBeneficiario returns integer 
     (dt-nascimento      as   date,
-     dt-calculo         as   date) forward.
+     dt-calculo         as   date  ) FORWARD.
 
 function ValorTotalMensalidade returns decimal 
     (in-modalidade          as   integer,
@@ -328,8 +328,29 @@ define variable DATA_FORMATO_DD_MM_YYYY_SEM_SEPARADOR   as   character          
 
 /* ************************  Function Prototypes ********************** */
 
+function FormatarData returns character
+      (input ch-value           as date,
+       input ch-format          as character, 
+       input ch-separator       as character, 
+       input lg-include-time    as logical,
+       input ch-time-separator  as character) FORWARD.
+
 function UltimoDiaMesAtual returns date 
         (  ) forward.
+
+function DataEstaSobreposta returns logical
+    (input dt-1-initial         as date,
+     input dt-1-final           as date,
+     input dt-2-initial         as date,
+     input dt-2-final           as date) FORWARD.
+
+function ConverterParaData returns date
+    (input ch-date-string       as   character,
+     input ch-formato           as   character) FORWARD.
+
+function UltimoDiaMes returns date    
+    (in-ano         as   integer,
+     in-mes         as   integer) FORWARD.
 
 function DiasNoMes returns integer 
         (in-ano as integer,
@@ -648,7 +669,7 @@ define temp-table temp-arquivo-diretorio    no-undo
 
 
 function ArquivoExiste returns logical 
-        (ch-caminho-arquivo        as   character) forward.
+        (ch-caminho-arquivo        as   character  ) FORWARD.
 
 function CriarDiretorio returns character 
         (ch-caminho            as   character) forward.
@@ -660,9 +681,9 @@ function GerarNomeArquivoTemporario returns character
         (ch-extensao           as   character) forward.
         
 function LeConteudoArquivo returns longchar 
-    (ch-path          as   character,
-     ch-source-encode as   character,
-     ch-target-encode as   character) forward.
+    (input ch-path          as   character,
+     input ch-source-encode as   character,
+     input ch-target-encode as   character) FORWARD.
 
 function ListarArquivosDiretorio returns logical 
         (ch-diretorio          as   character,
@@ -835,13 +856,13 @@ define temp-table temp-request-handlers         no-undo
 
 function ChamaWebServiceRetorno returns character 
     (in-task-id                         as   integer,
-     lo-xml                             as   longchar) forward.
+     lo-xml                             as   longchar ) FORWARD.
 
 function EnviarDados returns logical 
-    (hd-dataset             as   handle) forward.
+    (hd-dataset             as   handle  ) FORWARD.
 
 function FinalizarTarefa returns character 
-    (in-id-task                     as   integer) forward.
+    (in-id-task                     as   integer  ) FORWARD.
 
 /* ************************  Function Prototypes ********************** */
 
@@ -849,7 +870,7 @@ function ReportarError returns character
     (in-task-id                         as   integer) forward.
 
 function ConverteData returns date 
-    (ch-valor           as   character) forward.
+    (ch-valor           as   character  ) FORWARD.
 
 function PreparaWebService returns character 
     (  ) forward.
